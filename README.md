@@ -137,37 +137,6 @@ GoatCounter may deduplicate repeat visits, so its counts need not equal raw
 page reloads. The published JSON is public because it is served with the
 static site. It is refreshed daily rather than in real time.
 
-### Configure GoatCounter
-
-1. Create a GoatCounter site using the code **`yachi`**. The tracking script in
-   `index.html` is already configured for
-   `https://yachi.goatcounter.com/count`.
-2. Add the GitHub Pages host (for example, `yachi-qwq.github.io`) to the
-   GoatCounter site's allowed domains or settings, if required by the current
-   GoatCounter setup.
-3. In the GitHub repository, open **Settings → Secrets and variables →
-   Actions** and configure:
-   - **Variable** `GOATCOUNTER_CODE` with value `yachi`.
-   - **Secret** `GOATCOUNTER_API_TOKEN` with an API token that can read
-     statistics.
-     The updater authenticates with HTTP Basic authentication, using the API
-     token as the password and an empty username.
-4. Under **Settings → Actions → General → Workflow permissions**, allow
-   workflows to read and write repository contents. The build job needs this
-   permission to commit changes to `logs/site-stats.json`.
-5. In the repository's **Actions** tab, run **Deploy static site to GitHub
-   Pages** manually. Check the workflow run and the generated
-   `logs/site-stats.json` if the command still reports that statistics are
-   unavailable.
-
-Never put the GoatCounter API token in `index.html`, JavaScript, or any
-committed file. The site code `yachi` is public configuration; it is not an API
-credential.
-
-If the API token or site code is not configured, the static site can still be
-built and deployed, but `site-stats` reports that aggregate data is not ready.
-If only one of the two GitHub settings is present, the statistics update step
-fails and reports the missing configuration.
 
 ## Technology and architecture
 
