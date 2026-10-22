@@ -3,6 +3,8 @@ name: Deploy static site to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "logs/site-stats.json"
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:

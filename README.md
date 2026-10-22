@@ -216,7 +216,8 @@ password).
 
 ## Deploy to GitHub Pages
 
-The workflow is defined in `.github/workflows/pages.yml`. To deploy:
+The workflow is defined in `.github/workflows/pages.yml`. It deploys pushes to
+`main` when files other than the generated statistics JSON change. To deploy:
 
 1. In **Settings → Pages**, choose **GitHub Actions** as the deployment source.
 2. Ensure the workflow's repository write permission is enabled if you want
