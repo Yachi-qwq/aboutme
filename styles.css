@@ -1,0 +1,321 @@
+body {
+  max-width: 48rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #000;
+  color: #b7f7c1;
+  font: 1rem/1.7 monospace;
+}
+
+.terminal,
+.crypto-demo,
+.login-demo {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #292929;
+  border: 1px solid #555;
+  color: #d7d7d7;
+}
+
+button,
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  font: inherit;
+  min-height: 2.75rem;
+}
+
+a {
+  color: #7dd3fc;
+}
+
+.privacy-notice {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 2px;
+}
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#terminal-form,
+.crypto-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#terminal-form {
+  border-top: 1px solid #555;
+  padding-top: 1rem;
+}
+
+#terminal-form label {
+  font-weight: 700;
+}
+
+#command-input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 0.5rem;
+}
+
+#command-suggestions {
+  flex-basis: 100%;
+}
+
+.skills {
+  margin-top: 1rem;
+  color: #b7f7c1;
+}
+
+.skills-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.crypto-header {
+  justify-content: space-between;
+}
+
+.crypto-header > div {
+  flex: 1 1 20rem;
+}
+
+.login-demo-warning {
+  margin: 0.25rem 0 0;
+  color: #ff6666;
+  font-weight: 700;
+}
+
+.login-demo-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.login-demo-form-column {
+  border-right: 1px solid #555;
+  padding-right: 1rem;
+}
+
+.login-demo-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.login-demo-tabs button {
+  border: 1px solid #aaa;
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: 700;
+}
+
+.login-demo-tabs button[aria-pressed="true"] {
+  border-color: #b7f7c1;
+  background: #b7f7c1;
+  color: #102315;
+}
+
+#login-demo-form label,
+#login-demo-form input {
+  display: block;
+  width: 100%;
+}
+
+#login-demo-form input {
+  margin: 0.25rem 0 0.75rem;
+  padding: 0.5rem;
+}
+
+#login-demo-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.login-demo-status {
+  min-height: 1.7em;
+}
+
+.login-demo-status[data-state="error"],
+.login-demo-warning {
+  color: #ff6666;
+}
+
+.login-demo-status[data-state="success"] {
+  color: #b7f7c1;
+}
+
+.login-demo-explanation {
+  font-size: 0.85rem;
+}
+
+.login-demo-hash-view {
+  overflow-wrap: anywhere;
+}
+
+.login-demo-hash-view p {
+  margin: 0.75rem 0;
+}
+
+.login-demo-hash-view output {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #555;
+  background: #1b1b1b;
+  color: #b7f7c1;
+  font-size: 0.85rem;
+}
+
+.login-demo-code-column pre {
+  max-height: 18rem;
+  overflow: auto;
+  padding: 0.75rem;
+  background: #1b1b1b;
+}
+
+#login-demo-code code {
+  color: #4da6ff;
+}
+
+#login-demo-steps {
+  padding-left: 1.5rem;
+}
+
+#login-demo-steps li[data-active="true"] {
+  color: #b7f7c1;
+  font-weight: 700;
+}
+
+.crypto-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.crypto-inputs label,
+.crypto-inputs textarea,
+.crypto-inputs output {
+  display: block;
+  width: 100%;
+}
+
+.crypto-inputs textarea,
+.crypto-inputs output {
+  min-height: 8rem;
+  background: #333;
+  color: #d7d7d7;
+}
+
+.crypto-inputs textarea {
+  resize: vertical;
+}
+
+.crypto-inputs {
+  border-right: 1px solid #555;
+  padding-right: 1rem;
+}
+
+#crypto-xor-key {
+  min-height: 3rem;
+}
+
+.crypto-inputs output {
+  padding: 0.5rem;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+#crypto-code code {
+  color: #4da6ff;
+}
+
+#crypto-metrics,
+#crypto-details,
+footer {
+  overflow-wrap: anywhere;
+}
+
+footer {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.footer-attribution {
+  position: relative;
+  display: inline-block;
+}
+
+#page-footer {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.wat-popup {
+  position: absolute;
+  z-index: 1;
+  right: 50%;
+  bottom: calc(100% + 0.5rem);
+  width: min(34rem, calc(100vw - 2rem));
+  max-height: min(22rem, 60vh);
+  overflow: auto;
+  padding: 0.75rem 1rem;
+  border: 1px solid #555;
+  background: #111;
+  color: #b7f7c1;
+  text-align: left;
+  transform: translateX(50%);
+}
+
+.wat-popup pre {
+  margin: 0;
+}
+
+@media (max-width: 36rem) {
+  body {
+    margin: 1rem auto;
+    padding: 0 0.75rem;
+  }
+
+  .crypto-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .login-demo-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .crypto-inputs {
+    border-bottom: 1px solid #555;
+    border-right: 0;
+    padding-bottom: 1rem;
+    padding-right: 0;
+  }
+
+  .login-demo-form-column {
+    border-bottom: 1px solid #555;
+    border-right: 0;
+    padding-bottom: 1rem;
+    padding-right: 0;
+  }
+}

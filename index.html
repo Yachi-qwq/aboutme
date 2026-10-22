@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Explore Yachi's interests and skills through an interactive web terminal."
+    >
+    <title>Yachi | Web Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script
+      data-goatcounter="https://yachi.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <section aria-labelledby="about-title">
+        <h1 id="about-title">Hello, I'm Yachi.</h1>
+        <p id="about-description">
+          I'm a hobby developer from Austria and a trained electrician specializing in plant and operations technology. I'm interested in encryption, algorithms, backend development, server structures, and mobile app development. I work with Python, JavaScript, C, C++, Kotlin, Swift, and Arduino, and I program Siemens TIA Portal in FUP, SCL, and KOP. Fun fact: I'm also a certified emergency medical technician. Frontend development (as you can see here xD) isn't my strongest area, so I'm using this page to highlight my backend skills instead.
+        </p>
+        <p>
+          Find me on
+          <a href="https://github.com/Yachi-qwq" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+        
+      </section>
+
+      <section class="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills &amp; focus areas</h2>
+        <ul class="skills-list">
+          <li>
+            <strong>Hardware &amp; Low-Level:</strong> C/C++, Microcontroller programming, Arduino
+          </li>
+          <li>
+            <strong>Python:</strong> MicroPython, data analytics
+          </li>
+          <li>
+            <strong>Cryptography:</strong> Encryption, hashing
+          </li>
+          <li>
+            <strong>Backend &amp; Servers:</strong> Server structures, databases, management
+          </li>
+          <li>
+            <strong>Industrial Automation:</strong> Siemens TIA Portal (FUP, SCL, KOP)
+          </li>
+          <li>
+            <strong>Mobile Development:</strong> Kotlin and Swift (currently learning)
+          </li>
+        </ul>
+        <p>
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yachi-qwq&amp;layout=compact&amp;theme=vue-dark&amp;hide_border=true&amp;bg_color=0d1117"
+            alt="GitHub top programming languages for Yachi-qwq"
+          >
+        </p>
+        <p>
+          Welcome to my little corner of the internet. Feel free to explore the
+          terminal below.
+        </p>
+      </section>
+
+      <section class="terminal" aria-labelledby="terminal-title">
+        <h2 id="terminal-title">Interactive Terminal</h2>
+        <div id="terminal-output" aria-live="polite" aria-relevant="additions">
+          <pre>Welcome, visitor.
+Type "help" to see the available commands.</pre>
+        </div>
+        <form id="terminal-form">
+          <label for="command-input">yachi@web:~$</label>
+          <input
+            id="command-input"
+            name="command"
+            type="text"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            autofocus
+            aria-label="Enter a terminal command"
+          >
+          <button type="submit">Run</button>
+          <div id="command-suggestions" role="listbox" aria-label="Command suggestions" hidden></div>
+        </form>
+      </section>
+
+      <section id="crypto-panel" class="crypto-demo" aria-labelledby="crypto-title" hidden>
+        <header class="crypto-header">
+          <h2 id="crypto-title">Encryption Demo</h2>
+          <label for="crypto-algorithm">Operation:
+            <select id="crypto-algorithm">
+              <option value="caesar">Caesar Cipher</option>
+              <option value="sha256">SHA-256 Hash</option>
+              <option value="rsa-signature">RSA Signature</option>
+              <option value="one-time-pad">One-Time Pad</option>
+              <option value="xor">Repeating-key XOR</option>
+              <option value="diffie-hellman">Diffie-Hellman Key Exchange</option>
+            </select>
+          </label>
+          <button id="close-crypto" type="button" aria-label="Close encryption demo">×</button>
+        </header>
+        <p id="crypto-description">
+          A Caesar cipher shifts each ASCII letter by a fixed number of places.
+          It is easy to understand, but it is not secure encryption.
+        </p>
+        <p id="crypto-status" aria-live="polite">
+          Waiting for input. Pyodide and the RSA package are downloaded from the
+          internet when needed.
+        </p>
+        <div class="crypto-columns">
+          <div class="crypto-inputs">
+            <div id="crypto-text-input-container">
+              <label id="crypto-input-label" for="crypto-input">Text to process</label>
+              <textarea id="crypto-input" placeholder="Type some text..."></textarea>
+            </div>
+            <div id="crypto-xor-key-container" hidden>
+              <label for="crypto-xor-key">XOR key (repeated to match the text length)</label>
+              <textarea id="crypto-xor-key" placeholder="Enter a demo key..."></textarea>
+            </div>
+            <label for="crypto-output">Result</label>
+            <output id="crypto-output" for="crypto-input" aria-live="polite"></output>
+            <p id="crypto-metrics"></p>
+            <pre id="crypto-details"></pre>
+            <div id="crypto-key-container" hidden>
+              <label id="crypto-key-label" for="crypto-key">One-time pad key (Base64)</label>
+              <output id="crypto-key" for="crypto-input"></output>
+            </div>
+          </div>
+          <div>
+            <h3>Watch the code</h3>
+            <pre id="crypto-code"><code>Waiting for input...</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="login-demo-panel" class="login-demo" aria-labelledby="login-demo-title" hidden>
+        <header class="crypto-header">
+          <div>
+            <h2 id="login-demo-title">Login-Demo</h2>
+            <p class="login-demo-warning">
+              DEMO: Bitte keine echten Zugangsdaten eingeben. Konto und Passwort-Prüfdaten
+              bleiben nur im Arbeitsspeicher und werden beim Schließen dieses Fensters gelöscht.
+            </p>
+          </div>
+          <button id="close-login-demo" type="button" aria-label="Login-Demo schließen">×</button>
+        </header>
+        <div class="login-demo-columns">
+          <div class="login-demo-form-column">
+            <div class="login-demo-tabs" role="group" aria-label="Login-Demo auswählen">
+              <button id="login-demo-create-tab" type="button" aria-pressed="true">Konto erstellen</button>
+              <button id="login-demo-login-tab" type="button" aria-pressed="false">Login</button>
+            </div>
+            <form id="login-demo-form">
+              <label for="login-demo-username">Benutzername</label>
+              <input id="login-demo-username" name="username" autocomplete="off" required minlength="3" maxlength="24">
+              <label for="login-demo-password">Passwort</label>
+              <input id="login-demo-password" name="password" type="password" autocomplete="new-password" required minlength="6" maxlength="128">
+              <div id="login-demo-confirm-field">
+                <label for="login-demo-confirm">Passwort bestätigen</label>
+                <input id="login-demo-confirm" name="confirm" type="password" autocomplete="new-password" required minlength="6" maxlength="128">
+              </div>
+              <button id="login-demo-submit" type="submit">Demo-Konto erstellen</button>
+            </form>
+            <p id="login-demo-status" class="login-demo-status" role="status" aria-live="polite">
+              Wähle „Konto erstellen“ oder „Login“.
+            </p>
+            <p class="login-demo-explanation">
+              In dieser Simulation wird das Passwort nicht an einen Server gesendet:
+              PBKDF2 mit zufälligem Salt erzeugt lokal einen Prüfwert. Das ist ein Hash,
+              keine Verschlüsselung und keine echte Anmeldung.
+            </p>
+            <div class="login-demo-hash-view" aria-live="polite">
+              <p><strong>Zufälliger Salt (Hex)</strong><output id="login-demo-salt">Wird zufällig erzeugt.</output></p>
+              <p><strong>PBKDF2-SHA-256-Prüfwert (Hex)</strong><output id="login-demo-hash">Noch kein Hash berechnet.</output></p>
+            </div>
+          </div>
+          <div class="login-demo-code-column">
+            <h3>login-demo.js — Quellcode</h3>
+            <pre id="login-demo-code"><code></code></pre>
+            <ol id="login-demo-steps" aria-label="Aktueller Ablauf">
+              <li data-step="input">Eingabe prüfen</li>
+              <li data-step="salt">Zufälligen Salt erzeugen</li>
+              <li data-step="derive">PBKDF2-Prüfwert berechnen</li>
+              <li data-step="store">Nur Prüfwert im Arbeitsspeicher ablegen</li>
+              <li data-step="verify">Login-Prüfwert vergleichen</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-attribution">
+        <button
+          id="page-footer"
+          type="button"
+          aria-expanded="false"
+          aria-controls="wat-popup"
+        >Made by Yachi.</button>
+        <div id="wat-popup" class="wat-popup" role="region" aria-label="Footer WebAssembly source" hidden>
+          <pre><code id="wat-source">Loading source...</code></pre>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

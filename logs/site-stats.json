@@ -1,0 +1,11 @@
+{
+  "status": "setup_required",
+  "source": "GoatCounter",
+  "timezone": "UTC",
+  "generated_at": null,
+  "message": "Configure GoatCounter and run the GitHub Pages workflow.",
+  "total_views": null,
+  "daily_views": {},
+  "monthly_views": {},
+  "yearly_views": {}
+}
