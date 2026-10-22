@@ -32,6 +32,8 @@ def aggregate_daily_stats(rows: list[dict[str, object]], generated_at: str) -> d
         datetime.strptime(day, "%Y-%m-%d")
         if isinstance(count, bool) or not isinstance(count, int) or count < 0:
             raise ValueError(f"GoatCounter returned an invalid count for {day}.")
+        if count == 0:
+            continue
         daily_views[day] = daily_views.get(day, 0) + count
 
     monthly_views: dict[str, int] = defaultdict(int)

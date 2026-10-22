@@ -126,7 +126,8 @@ counts, and yearly counts.
    deploys the site. You can also run the workflow manually to refresh it.
 
 The JSON published with the site contains only date buckets and counts. It
-does not contain IP addresses, usernames, or individual visit records.
+omits dates with zero views and does not contain IP addresses, usernames, or
+individual visit records.
 GoatCounter states that it does not store IP addresses, but processes them
 temporarily in memory to distinguish repeat visits. Depending on the site's
 GoatCounter privacy settings, GoatCounter may collect additional aggregate
