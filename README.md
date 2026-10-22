@@ -6,8 +6,6 @@ information tools, and educational Python cryptography demonstrations that run
 in the browser.
 
 **Live site:** [Yachi Web Terminal](https://yachi-qwq.github.io/)
-  
-**GitHub profile:** [Yachi-qwq](https://github.com/Yachi-qwq)
 
 > The site is a learning and portfolio project. Its cryptography and login
 > examples are demonstrations only, not production security tools.
