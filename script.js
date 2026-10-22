@@ -381,6 +381,7 @@ function writeLine(text) {
 
 function writeCommand(command) {
   const line = document.createElement("pre");
+  line.className = "terminal-command";
   const prompt = document.createElement("strong");
   prompt.textContent = "yachi@web:~$ ";
   line.append(prompt, document.createTextNode(command));

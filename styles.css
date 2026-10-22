@@ -66,6 +66,12 @@ pre {
   font-weight: 700;
 }
 
+#terminal-form label,
+#command-input,
+#terminal-output .terminal-command {
+  color: #c084fc;
+}
+
 #command-input {
   flex: 1 1 12rem;
   min-width: 0;
