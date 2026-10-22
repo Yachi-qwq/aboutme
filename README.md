@@ -181,21 +181,6 @@ against the live service requires the `GOATCOUNTER_CODE` and
 API token is sent using HTTP Basic authentication (empty username, token as
 password).
 
-## Deploy to GitHub Pages
-
-The workflow is defined in `.github/workflows/pages.yml`. It deploys pushes to
-`main` when files other than the generated statistics JSON change. To deploy:
-
-1. In **Settings → Pages**, choose **GitHub Actions** as the deployment source.
-2. Ensure the workflow's repository write permission is enabled if you want
-   the JSON statistics file to be updated and committed.
-3. Push to the `main` branch or run the workflow manually from **Actions**.
-
-The workflow builds a `_site` artifact from the HTML, CSS, JavaScript, Python
-examples, WebAssembly text source, and statistics JSON, then deploys it using
-GitHub's Pages actions. A scheduled run also refreshes the statistics every
-day at 03:17 UTC.
-
 ## Repository layout
 
 ```text
