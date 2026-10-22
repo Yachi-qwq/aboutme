@@ -5,7 +5,7 @@ static HTML/CSS interface, an interactive JavaScript command line, browser
 information tools, and educational Python cryptography demonstrations that run
 in the browser.
 
-**Live site:** [Yachi Web Terminal](https://yachi-qwq.github.io/)
+**Live site:** [Yachi Web Terminal](https://yachi-qwq.github.io/aboutme/)
 
 > The site is a learning and portfolio project. Its cryptography and login
 > examples are demonstrations only, not production security tools.
