@@ -47,13 +47,13 @@ function setMode(nextMode) {
   loginTab.setAttribute("aria-pressed", String(!createMode));
   submitButton.disabled = false;
   passwordInput.autocomplete = createMode ? "new-password" : "current-password";
-  submitButton.textContent = createMode ? "Demo-Konto erstellen" : "Demo-Login";
+  submitButton.textContent = createMode ? "Create demo account" : "Demo login";
   setStatus(
     createMode
-      ? "Erstelle ein Konto nur für diese Demo."
+      ? "Create an account for this demo only."
       : account
-        ? "Melde dich mit dem eben erstellten Demo-Konto an."
-        : "Erstelle zuerst in diesem Seitenaufruf ein Demo-Konto."
+        ? "Log in with the demo account you just created."
+        : "Create a demo account during this page visit first."
   );
   setStep("input");
 }
@@ -69,8 +69,8 @@ function clearDemo() {
   operationId += 1;
   forgetAccount();
   form.reset();
-  hashOutput.textContent = "Noch kein Hash berechnet.";
-  saltOutput.textContent = "Wird zufällig erzeugt.";
+  hashOutput.textContent = "No hash calculated yet.";
+  saltOutput.textContent = "Generated when needed.";
 }
 
 async function derivePassword(password, salt) {
@@ -107,7 +107,7 @@ async function showSourceFile() {
   if (!sourcePromise) {
     sourcePromise = fetch(import.meta.url).then(async (response) => {
       if (!response.ok) {
-        throw new Error(`login-demo.js konnte nicht geladen werden (${response.status}).`);
+        throw new Error(`Could not load login-demo.js (${response.status}).`);
       }
       return response.text();
     }).catch((error) => {
@@ -129,17 +129,17 @@ form.addEventListener("submit", async (event) => {
   const password = passwordInput.value;
 
   if (!/^[a-zA-Z0-9_-]{3,24}$/.test(username)) {
-    setStatus("Benutzername: 3–24 Zeichen, nur Buchstaben, Zahlen, _ und -.", "error");
+    setStatus("Username must be 3–24 characters and contain only letters, numbers, _ or -.", "error");
     setStep("input");
     return;
   }
   if (password.length < 6 || password.length > 128) {
-    setStatus("Das Demo-Passwort muss 6–128 Zeichen lang sein.", "error");
+    setStatus("The demo password must be 6–128 characters long.", "error");
     setStep("input");
     return;
   }
   if (mode === "create" && password !== confirmationInput.value) {
-    setStatus("Die Passwörter stimmen nicht überein.", "error");
+    setStatus("The passwords do not match.", "error");
     setStep("input");
     return;
   }
@@ -148,12 +148,12 @@ form.addEventListener("submit", async (event) => {
   try {
     if (mode === "create") {
       setStep("salt");
-      setStatus("Erzeuge einen zufälligen Salt im Browser …");
+      setStatus("Generating a random salt in your browser...");
       const salt = crypto.getRandomValues(new Uint8Array(16));
       saltOutput.textContent = toHex(salt);
 
       setStep("derive");
-      setStatus("Berechne den PBKDF2-Prüfwert lokal …");
+      setStatus("Deriving the PBKDF2 verifier locally...");
       const verifier = await derivePassword(password, salt);
       if (currentOperation !== operationId) {
         salt.fill(0);
@@ -166,24 +166,24 @@ form.addEventListener("submit", async (event) => {
       account = { username, salt, verifier };
       hashOutput.textContent = toHex(verifier);
       setStatus(
-        "Demo-Konto erstellt. Salt und Hash bleiben vorübergehend im Arbeitsspeicher.",
+        "Demo account created. The salt and hash remain in memory temporarily.",
         "success"
       );
     } else {
       if (!account) {
-        setStatus("Es gibt noch kein Demo-Konto. Erstelle zuerst eines.", "error");
+        setStatus("No demo account exists yet. Create one first.", "error");
         setStep("input");
         return;
       }
 
       if (username !== account.username) {
-        setStatus("Login fehlgeschlagen: Benutzername oder Passwort falsch.", "error");
+        setStatus("Login failed: incorrect username or password.", "error");
         setStep("verify");
         return;
       }
 
       setStep("derive");
-      setStatus("Berechne den Login-Prüfwert lokal …");
+      setStatus("Deriving the login verifier locally...");
       const candidate = await derivePassword(password, account.salt);
       if (currentOperation !== operationId) {
         candidate.fill(0);
@@ -197,14 +197,14 @@ form.addEventListener("submit", async (event) => {
       candidate.fill(0);
       setStatus(
         authenticated
-          ? "Demo-Login erfolgreich. Es wurde keine Verbindung zu einem Server hergestellt."
-          : "Login fehlgeschlagen: Benutzername oder Passwort falsch.",
+          ? "Demo login successful. No connection to a server was made."
+          : "Login failed: incorrect username or password.",
         authenticated ? "success" : "error"
       );
     }
   } catch (error) {
     setStatus(
-      `Demo konnte nicht ausgeführt werden: ${error.message || "Web Crypto ist nicht verfügbar."}`,
+      `Could not run the demo: ${error.message || "Web Crypto is unavailable."}`,
       "error"
     );
     console.error("Local login demonstration failed.", error);
@@ -234,7 +234,7 @@ export async function openLoginDemo() {
     await showSourceFile();
   } catch (error) {
     codeOutput.textContent = error.message;
-    setStatus(`Die Quelldatei konnte nicht angezeigt werden: ${error.message}`, "error");
+    setStatus(`Could not display the source file: ${error.message}`, "error");
     console.error("Login demo source could not be displayed.", error);
   }
 }

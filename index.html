@@ -138,53 +138,53 @@ Type "help" to see the available commands.</pre>
       <section id="login-demo-panel" class="login-demo" aria-labelledby="login-demo-title" hidden>
         <header class="crypto-header">
           <div>
-            <h2 id="login-demo-title">Login-Demo</h2>
+            <h2 id="login-demo-title">Login Demo</h2>
             <p class="login-demo-warning">
-              DEMO: Bitte keine echten Zugangsdaten eingeben. Konto und Passwort-Prüfdaten
-              bleiben nur im Arbeitsspeicher und werden beim Schließen dieses Fensters gelöscht.
+              DEMO: Do not enter real credentials. The demo account and password verifier
+              stay in memory and are deleted when this panel is closed.
             </p>
           </div>
-          <button id="close-login-demo" type="button" aria-label="Login-Demo schließen">×</button>
+          <button id="close-login-demo" type="button" aria-label="Close login demo">×</button>
         </header>
         <div class="login-demo-columns">
           <div class="login-demo-form-column">
-            <div class="login-demo-tabs" role="group" aria-label="Login-Demo auswählen">
-              <button id="login-demo-create-tab" type="button" aria-pressed="true">Konto erstellen</button>
+            <div class="login-demo-tabs" role="group" aria-label="Choose a login demo action">
+              <button id="login-demo-create-tab" type="button" aria-pressed="true">Create account</button>
               <button id="login-demo-login-tab" type="button" aria-pressed="false">Login</button>
             </div>
             <form id="login-demo-form">
-              <label for="login-demo-username">Benutzername</label>
+              <label for="login-demo-username">Username</label>
               <input id="login-demo-username" name="username" autocomplete="off" required minlength="3" maxlength="24">
-              <label for="login-demo-password">Passwort</label>
+              <label for="login-demo-password">Password</label>
               <input id="login-demo-password" name="password" type="password" autocomplete="new-password" required minlength="6" maxlength="128">
               <div id="login-demo-confirm-field">
-                <label for="login-demo-confirm">Passwort bestätigen</label>
+                <label for="login-demo-confirm">Confirm password</label>
                 <input id="login-demo-confirm" name="confirm" type="password" autocomplete="new-password" required minlength="6" maxlength="128">
               </div>
-              <button id="login-demo-submit" type="submit">Demo-Konto erstellen</button>
+              <button id="login-demo-submit" type="submit">Create demo account</button>
             </form>
             <p id="login-demo-status" class="login-demo-status" role="status" aria-live="polite">
-              Wähle „Konto erstellen“ oder „Login“.
+              Choose "Create account" or "Login".
             </p>
             <p class="login-demo-explanation">
-              In dieser Simulation wird das Passwort nicht an einen Server gesendet:
-              PBKDF2 mit zufälligem Salt erzeugt lokal einen Prüfwert. Das ist ein Hash,
-              keine Verschlüsselung und keine echte Anmeldung.
+              This simulation never sends your password to a server: PBKDF2 with a
+              random salt creates a verifier locally. This is a hash, not encryption
+              or a real authentication system.
             </p>
             <div class="login-demo-hash-view" aria-live="polite">
-              <p><strong>Zufälliger Salt (Hex)</strong><output id="login-demo-salt">Wird zufällig erzeugt.</output></p>
-              <p><strong>PBKDF2-SHA-256-Prüfwert (Hex)</strong><output id="login-demo-hash">Noch kein Hash berechnet.</output></p>
+              <p><strong>Random salt (hex)</strong><output id="login-demo-salt">Generated when needed.</output></p>
+              <p><strong>PBKDF2-SHA-256 verifier (hex)</strong><output id="login-demo-hash">No hash calculated yet.</output></p>
             </div>
           </div>
           <div class="login-demo-code-column">
-            <h3>login-demo.js — Quellcode</h3>
+            <h3>login-demo.js — Source code</h3>
             <pre id="login-demo-code"><code></code></pre>
-            <ol id="login-demo-steps" aria-label="Aktueller Ablauf">
-              <li data-step="input">Eingabe prüfen</li>
-              <li data-step="salt">Zufälligen Salt erzeugen</li>
-              <li data-step="derive">PBKDF2-Prüfwert berechnen</li>
-              <li data-step="store">Nur Prüfwert im Arbeitsspeicher ablegen</li>
-              <li data-step="verify">Login-Prüfwert vergleichen</li>
+            <ol id="login-demo-steps" aria-label="Current process">
+              <li data-step="input">Validate input</li>
+              <li data-step="salt">Generate random salt</li>
+              <li data-step="derive">Derive PBKDF2 verifier</li>
+              <li data-step="store">Store verifier in memory only</li>
+              <li data-step="verify">Compare login verifier</li>
             </ol>
           </div>
         </div>
