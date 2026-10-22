@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -66,10 +67,11 @@ def fetch_stats(site_code: str, api_token: str) -> dict[str, object]:
         f"https://{site_code.lower()}.goatcounter.com/api/v0/stats/total?"
         f"{query}"
     )
+    basic_credentials = base64.b64encode(f":{api_token}".encode("utf-8")).decode("ascii")
     request = Request(
         url,
         headers={
-            "Authorization": f"Bearer {api_token}",
+            "Authorization": f"Basic {basic_credentials}",
             "Content-Type": "application/json",
             "Accept": "application/json",
         },

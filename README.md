@@ -151,6 +151,8 @@ static site. It is refreshed daily rather than in real time.
    - **Variable** `GOATCOUNTER_CODE` with value `yachi`.
    - **Secret** `GOATCOUNTER_API_TOKEN` with an API token that can read
      statistics.
+     The updater authenticates with HTTP Basic authentication, using the API
+     token as the password and an empty username.
 4. Under **Settings → Actions → General → Workflow permissions**, allow
    workflows to read and write repository contents. The build job needs this
    permission to commit changes to `logs/site-stats.json`.
@@ -207,7 +209,9 @@ To test the statistics aggregation independently, the `aggregate_daily_stats`
 function in `logs/update_stats.py` accepts GoatCounter daily records and
 returns daily, monthly, yearly, and all-time totals. Running the updater
 against the live service requires the `GOATCOUNTER_CODE` and
-`GOATCOUNTER_API_TOKEN` environment variables; do not commit the token.
+`GOATCOUNTER_API_TOKEN` environment variables; do not commit the token. The
+API token is sent using HTTP Basic authentication (empty username, token as
+password).
 
 ## Deploy to GitHub Pages
 
