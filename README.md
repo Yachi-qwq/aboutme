@@ -19,7 +19,6 @@ in the browser.
 - [Site statistics and privacy](#site-statistics-and-privacy)
 - [Technology and architecture](#technology-and-architecture)
 - [Run locally](#run-locally)
-- [Deploy to GitHub Pages](#deploy-to-github-pages)
 - [Repository layout](#repository-layout)
 - [Limitations and security notes](#limitations-and-security-notes)
 
