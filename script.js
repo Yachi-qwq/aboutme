@@ -335,8 +335,7 @@ async function getSiteStats() {
     "├─ RECENT YEARS ─────────────────────────────────",
     ...listLines(recentYears),
     "╰────────────────────────────────────────────────",
-    `Updated: ${stats.generated_at || "not available"}`,
-    "Aggregated counts only; the project JSON contains no IP addresses or individual visit records."
+    `Updated: ${stats.generated_at || "not available"}`
   ].join("\n");
 }
 
